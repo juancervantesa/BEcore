@@ -17,7 +17,6 @@ builder.Services.AddDbContext<SeguridadInformaticaContext>(options =>
 
 builder.Services.AddCors(options =>
 {
-
     options.AddPolicy("CorsPolicy",
         builder =>
         {
