@@ -18,8 +18,8 @@ Proyecto realizao para el modulo 1 de la Maestria de Ingenieria de SW.
 
 ### Clonar Repositorio
 ```bash
-git clone https://github.tu-usuario/tu-repositorio.git
-cd nombre-proyecto-backend
+git clone https://github.tu-usuario/tu-repositorio.git](https://github.com/juancervantesa/BEcore.git
+cd BEseguridad
 ```
 
 ### Configurar Base de Datos
@@ -31,37 +31,16 @@ cd nombre-proyecto-backend
 proyecto-backend/
 │
 ├── Controllers/
+├── Dtos/
 ├── Models/
-├── Services/
-├── Repositories/
-├── Database/
-│   └── ScriptCreacionBD.sql
+├── Utilidades/
+├──base de datos.sql
 ├── appsettings.json
 └── Program.cs
 ```
 
 ## 🗄️ Script de Creación de Base de Datos
-Adjunta aquí el script SQL para crear la base de datos y tablas necesarias.
-
-```sql
--- Ejemplo de script de creación de base de datos
-CREATE DATABASE NombreProyecto;
-GO
-
-USE NombreProyecto;
-GO
-
--- Crear tablas
-CREATE TABLE Usuarios (
-    UsuarioID INT PRIMARY KEY IDENTITY(1,1),
-    Nombre NVARCHAR(100) NOT NULL,
-    Correo NVARCHAR(100) UNIQUE NOT NULL,
-    FechaCreacion DATETIME DEFAULT GETDATE()
-);
-GO
-
--- Crear procedimientos almacenados, índices, etc.
-```
+Ejecuta el script SQL para crear la base de datos y tablas necesarias.
 
 ## 🔐 Configuración de Conexión
 Ejemplo de configuración en `appsettings.json`:
@@ -69,7 +48,7 @@ Ejemplo de configuración en `appsettings.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=NombreProyecto;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "SeguridadInformatica": "Data Source=PC-Jota\\SQLEXPRESS;Database=SeguridadInformatica;Trusted_Connection=True;TrustServerCertificate=True;"
   },
   "Logging": {
     "LogLevel": {
@@ -91,6 +70,7 @@ dotnet restore
 ```bash
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+este paso en caso de que sea necesario de actulizar algunos campos en la base de datos
 ```
 
 ### Ejecutar Proyecto
@@ -98,30 +78,10 @@ dotnet ef database update
 dotnet run
 ```
 
-## 🧪 Pruebas
-- Describir proceso de ejecución de pruebas unitarias
-- Herramientas de testing utilizadas
-
 ## 🤝 Contribuciones
-Guías para contribuir al proyecto, si aplica.
+Guías para contribuir al proyecto en desarrollo
 
-## 📜 Licencia
-[Tipo de Licencia, por ejemplo MIT]
-
-## 👥 Contacto
-- Nombre del Desarrollador
-- Correo electrónico
-- LinkedIn (opcional)
-```
 
 ## 🔍 Notas Importantes
-- Reemplazar `[placeholders]` con información específica de tu proyecto
-- Personalizar secciones según necesidades particulares
 - Mantener actualizado el README
 
-## Consejos Adicionales
-1. Incluye capturas de pantalla si es relevante
-2. Documenta comandos específicos de tu proyecto
-3. Explica brevemente la arquitectura
-
-¿Te gustaría que personalicemos alguna sección del README o agregue más detalles específicos de tu proyecto?
