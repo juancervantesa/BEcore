@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 namespace BEseguridad.Models;
-
 public partial class Amenaza
 {
     public int AmenazaId { get; set; }
