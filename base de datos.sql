@@ -12,13 +12,13 @@ CREATE TABLE Usuarios (
     Nombre NVARCHAR(100) NOT NULL,
     Email NVARCHAR(150) NOT NULL UNIQUE,
     Username NVARCHAR(50) NOT NULL UNIQUE,
-    Password NVARCHAR(255) NOT NULL, -- Almacenar siempre hash, no contraseñas en texto plano
+    Password NVARCHAR(255) NOT NULL, -- Almacenar siempre hash, no contraseï¿½as en texto plano
     EsAdmin BIT DEFAULT 0,
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 GO
 
--- Tabla de categorías de amenazas
+-- Tabla de categorï¿½as de amenazas
 CREATE TABLE CategoriasAmenazas (
     CategoriaID INT IDENTITY(1,1) PRIMARY KEY,
     Nombre NVARCHAR(100) NOT NULL
@@ -45,7 +45,7 @@ CREATE TABLE Recursos (
 );
 GO
 
--- Tabla de artículos
+-- Tabla de artï¿½culos
 CREATE TABLE Articulos (
     ArticuloID INT IDENTITY(1,1) PRIMARY KEY,
     Titulo NVARCHAR(200) NOT NULL,
@@ -57,13 +57,13 @@ GO
 
 -- Insertar datos iniciales
 
--- Categorías de amenazas
+-- Categorï¿½as de amenazas
 INSERT INTO CategoriasAmenazas (Nombre)
 VALUES 
 ('Malware'),
 ('Phishing'),
 ('Ataques a infraestructura'),
-('Ingeniería social'),
+('Ingenierï¿½a social'),
 ('Vulnerabilidades de software');
 
 -- Usuario administrador inicial
@@ -74,20 +74,21 @@ VALUES ('Admin', 'admin@seguridadinformatica.com', 'admin', 'hashed_password_her
 INSERT INTO Amenazas (CategoriaID, Titulo, Descripcion, NivelRiesgo) 
 VALUES 
 (1, 'Ransomware', 'Malware que cifra archivos y exige un rescate.', 5),
-(2, 'Phishing por correo', 'Suplantación de identidad a través de correos electrónicos falsos.', 4),
-(3, 'DDoS', 'Ataque de denegación de servicio para saturar recursos.', 5),
-(4, 'Ingeniería social en persona', 'Manipulación psicológica para obtener información.', 3),
-(5, 'Explotación de vulnerabilidad', 'Uso de fallos de software no parcheados.', 4);
+(2, 'Phishing por correo', 'Suplantaciï¿½n de identidad a travï¿½s de correos electrï¿½nicos falsos.', 4),
+(3, 'DDoS', 'Ataque de denegaciï¿½n de servicio para saturar recursos.', 5),
+(4, 'Ingenierï¿½a social en persona', 'Manipulaciï¿½n psicolï¿½gica para obtener informaciï¿½n.', 3),
+(5, 'Explotaciï¿½n de vulnerabilidad', 'Uso de fallos de software no parcheados.', 4);
 
 -- Recursos
 INSERT INTO Recursos (Titulo, Descripcion, EnlaceURL) 
 VALUES 
-('Guía de protección contra Ransomware', 'Instrucciones para prevenir y mitigar ransomware.', 'https://ejemplo.com/ransomware'),
-('Detección de Phishing', 'Cómo identificar correos electrónicos de phishing.', 'https://ejemplo.com/phishing'),
-('Protección contra DDoS', 'Mejores prácticas para mitigar ataques DDoS.', 'https://ejemplo.com/ddos');
+('Guï¿½a de protecciï¿½n contra Ransomware', 'Instrucciones para prevenir y mitigar ransomware.', 'https://ejemplo.com/ransomware'),
+('Detecciï¿½n de Phishing', 'Cï¿½mo identificar correos electrï¿½nicos de phishing.', 'https://ejemplo.com/phishing'),
+('Protecciï¿½n contra DDoS', 'Mejores prï¿½cticas para mitigar ataques DDoS.', 'https://ejemplo.com/ddos');
 
--- Artículos
+-- Artï¿½culos
+
 INSERT INTO Articulos (Titulo, Contenido, UsuarioID) 
 VALUES 
-('Cómo protegerse del ransomware', 'Este artículo cubre estrategias para evitar ransomware.', 1),
-('Identificando correos de phishing', 'Cómo reconocer intentos de phishing en el correo.', 1);
+('Cï¿½mo protegerse del ransomware', 'Este artï¿½culo cubre estrategias para evitar ransomware.', 1),
+('Identificando correos de phishing', 'Cï¿½mo reconocer intentos de phishing en el correo.', 1);
